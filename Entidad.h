@@ -17,16 +17,17 @@ public:
 
     //Metdodos
 
-    virtual void atacar() const = 0;
-    virtual void recibirDanio();
-    void curar();
-    bool estaVivo();
+    virtual void atacar(Entidad& objetivo) const = 0;
+    virtual void recibirDanio(int cantidad) const = 0;
+    void curar(int cantidad);
+    bool estaVivo() const;
     void congelar();
     void quemar(int turnos);
     void envenenar(int turnos);
-    void quitardebilidades();
-    bool activarDebilidades();
-    void subirAtaque(int catidad);
+    void quitarEstados();
+    bool procesarEstados();
+    void subirAtaque(int cantidad);
+
 
     //Constructor
 
@@ -38,10 +39,11 @@ public:
 
     //Getters
 
-    getNombre() const;
-    getVidaAct() const;
-    getVidaMax() const;
-    getAtaque() const;
+    std::string getNombre() const;
+    int getVidaAct() const;
+    int getVidaMax() const;
+    int getAtaque() const;
+
 };
 
-
+#endif
